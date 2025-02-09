@@ -1,0 +1,22 @@
+.rsc-card {
+    width: 100px;
+    height: auto;
+    border: solid 4px rgb(46, 80, 49);
+}
+.inventory-content {
+    display: flex;
+    gap: 0.5rem;
+}
+.inventory-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+h4 {
+    margin: 0;
+}

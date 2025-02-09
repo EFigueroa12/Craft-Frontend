@@ -1,0 +1,16 @@
+.game-container {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    background-color: rgb(194, 140, 39);
+  }
+  .top-layer {
+    display: flex;
+    gap: 2rem;
+    margin: 5px;
+  }
+  .player-layer {
+    display: flex;
+    gap: 2rem;
+  }
+  

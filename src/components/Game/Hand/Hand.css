@@ -1,0 +1,18 @@
+.hand-container {
+    outline: solid 4px rgb(46, 80, 49);
+    background-color: rgb(117, 159, 119);
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.hand-content {
+    display: flex;
+}
+.user-card {
+    margin: 1rem;
+    width: 150px;
+    height: auto;
+    border: solid 4px rgb(46, 80, 49);
+}

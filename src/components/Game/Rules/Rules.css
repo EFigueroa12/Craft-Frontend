@@ -1,0 +1,29 @@
+.id-rules-content {
+    display: flex;
+    gap: 1rem;
+}
+
+.id-rules-container {
+    align-items: center;
+}
+
+.rules-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rsc-rule-content {
+    border: solid 4px rgb(46, 80, 49);
+    padding: 5px;
+    background-color: rgb(117, 159, 119);
+    color: rgb(231, 202, 42);
+    font-weight: 500;
+}
+.rsc-rule-container {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
