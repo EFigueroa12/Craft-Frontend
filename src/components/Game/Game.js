@@ -6,9 +6,11 @@ import IdentityDeck from './IdentityDeck/IdentityDeck';
 import ResourceDeck from './ResourceDeck/ResourceDeck';
 import Rules from './Rules/Rules'
 import UserTurn from './UserTurn/UserTurn';
+import Home from '../Home/Home'
 
 function Game({username, playerId}) {
   const [render, setRender] = useState(false)
+  const [gamePage, setGamePage] = useState(true)
   const [gameData, setGameData] = useState("")
   const hasFetched = useRef(false)
   
@@ -37,25 +39,26 @@ function Game({username, playerId}) {
         console.error("Fatch error", error)
       }
     }
-    if (playerId){
+    if (!render){
       init_game()
     }
-  }, [playerId])
+  }, [render, playerId])
 
-  function deleteGame(game_id){
+  const deleteGame = async (game_id, e) => {
+    e.preventDefault()
     try {
-      const response = fetch(`http://127.0.0.1:5000/end_game/${game_id}`, {
+      console.log(game_id)
+      const response = await fetch(`http://127.0.0.1:5000/end_game/${game_id}`, {
       method: "DELETE"
       })
       if (response.ok){
         console.log('deleted!')
+        setGamePage(false)
       }
       else {
-        console.log(response)
         console.error("Failed to delete game.")
       }
-    }
-    catch (error){
+    } catch (error) {
       console.error("Fatch error", error)
     }
   }
@@ -63,23 +66,32 @@ function Game({username, playerId}) {
   return (
     <div className='game-container'>
       { render ?
-        ( 
-          <>
-            <button onClick={()=>deleteGame(gameData.game_id)}> Quit Game </button>
-            <h3>{username} </h3>
-            {/* <h3> {playerId} </h3> */}
-            <div className='top-layer'>
-              <ResourceDeck />
-              <IdentityDeck />
-            </div>
-            <div className='player-layer'>
-              <Hand />
-              <UserTurn />
-            </div>
-            <Rules />
-          </>
+      (  <>
+          { gamePage ? 
+            (<>
+                <button 
+                  className="exit-btn" 
+                  onClick={(e)=>deleteGame(gameData.game_id, e)}
+                > Quit Game 
+                </button>
+                <div className='top-layer'>
+                  <ResourceDeck />
+                  <IdentityDeck />
+                </div>
+                <div className='player-layer'>
+                  <Hand playerId= {playerId} gameInit={render} username={username}/>
+                  <UserTurn />
+                </div>
+                <Rules />
+              </>) 
+            : 
+            (<div>
+              <Home username={username} playerId={playerId}/>
+            </div>) 
+          }
+        </>
         ) :
-        (<h3> failed to render page Game</h3>)
+        (<h3> Loading game... </h3>)
       }
     </div>
   );

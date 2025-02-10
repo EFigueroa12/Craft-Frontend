@@ -2,4 +2,8 @@
     width: 170px;
     height: auto;
     border: solid 4px rgb(46, 80, 49);
+    transition: all 0.3s ease;
+}
+.id-card:hover{
+    transform: translateY(-0.5rem);
 }

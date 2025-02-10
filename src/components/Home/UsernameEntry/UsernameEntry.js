@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import './UsernameEntry.css'
+import Rules from '../../Game/Rules/Rules'
+
 
 function UsernameEntry({onUsernameSet, onSetPlayerId}) {
     const [username, setUsername] = useState("")
@@ -25,16 +28,20 @@ function UsernameEntry({onUsernameSet, onSetPlayerId}) {
     }
         
     return (
-        <div>
+        <div className='home-container'>
+            <h2> Welcome to Craft ID! </h2>
+            <h> Enter a username and start a game </h>
             <form onSubmit={handleSubmit}>
                 <input 
+                    placeholder="Enter username"
                     type='text'
                     value={username}
                     onChange={(e)=>setUsername(e.target.value)}
                     required
                 />
-                 <button type='submit'> Start Game</button>
+                 <button className="std-btn" type='submit'> Start Game</button>
             </form>
+            <Rules />
         </ div>
     )
 };

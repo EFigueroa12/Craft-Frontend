@@ -1,13 +1,13 @@
 .id-rule-card {
     border: solid 4px rgb(46, 80, 49);
     border-radius: 3rem;
-    background-color: rgb(117, 159, 119);
+    background-color: rgb(70, 116, 72);
     padding: 5px;
     width: fit-content;
     align-items: center;
     flex-direction: column;
     display: flex;
-    color: rgb(231, 202, 42);
+    color: rgb(239, 225, 146);
 }
 h3{
     margin: 0;

@@ -1,0 +1,8 @@
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.std-btn:hover{
+    transform: translateY(-0.5rem);
+}

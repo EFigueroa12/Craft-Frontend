@@ -7,7 +7,7 @@ import { RULES } from '../../utils/data'
 function Rules() {
     return (
         <div className='rules-container'> 
-            <h2> Here are the rules for CraftID! </h2>
+            <h2> Rules for CraftID: </h2>
             <div className='id-rules-container'>
                 <div className='id-rules-content'>
                     {IDENTITY_CARDS.map((item, index)=>(
